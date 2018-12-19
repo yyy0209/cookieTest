@@ -27,15 +27,18 @@ public class DoLoginServlet extends HttpServlet {
         if (user != null) {
             if (user.getPassword().equals(password)) {   //密码验证成功，跳转登录界面
                 //长时间存储
-                Cookie coo = new Cookie("username",uname);
+                Cookie coo = new Cookie("username",uname);  //创建cookie
                 Cookie coop = new Cookie("password",password);
-                coo.setMaxAge(60*60*24*7);
+                coo.setMaxAge(60*60*24*7);   //设置cooKie存储时间
                 coop.setMaxAge(60*60*24*7);
-                resp.addCookie(coo);
+                resp.addCookie(coo);   //添加到浏览器
                 resp.addCookie(coop);
-                HttpSession session = req.getSession();
-                session.setAttribute("user",user);
-                req.getRequestDispatcher("WEB-INF/pages/list.jsp").forward(req,resp);
+                //System.out.println(coo.getName()+ "  "+ coo.getValue());  //测试
+                HttpSession session = req.getSession();   //获取session
+                session.setAttribute("user",user);   //给服务器session添加内容
+                /*重定向是地址*/
+                resp.sendRedirect("list");   //跑到ListServlet.java
+                //req.getRequestDispatcher("WEB-INF/pages/list.jsp").forward(req,resp);
                 //resp.getWriter().write("1");
                 /*//重定向
                 resp.sendRedirect("list");*/

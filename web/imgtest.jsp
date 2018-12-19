@@ -11,8 +11,8 @@
     <title>Title</title>
 </head>
 <body>
-    <form action="img" method="post">
-        <input type="file">  <%--文件选择按钮--%>
+    <form action="img" method="post" enctype="multipart/form-data"> <%--指定传输类型--%>
+        <input type="file" name="file">  <%--文件选择按钮--%>
         <input type="submit">
     </form>
 </body>
