@@ -21,7 +21,7 @@ public class ImgServlet extends HttpServlet {
         String str = "E:\\myjavacode1\\cookieTest\\web\\img\\"+part.getSubmittedFileName();
         File file = new File(str);
         String url = str.substring(str.indexOf("img"));  //截取
-        System.out.println(url);
+        //System.out.println(url);
         /*输出流向指定位置写*/
         OutputStream os = new FileOutputStream(file);
         /*文件接收*/
